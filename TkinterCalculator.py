@@ -2,7 +2,8 @@ from tkinter import *
 
 root = Tk()
 root.title("Calculadora")
-#root.iconbitmap(bitmap="icono.ico")
+root.iconbitmap('D:\PROGRAMACION\CURSOS UDEMY\Python\CalcuTkinter\icono.ico') #Cambiar a la ruta en donde se haya descargado el icono
+root.configure(bg= "#2A1A24")
 root.resizable(0,0)
 
 #Frame
@@ -119,10 +120,10 @@ button_parenthesis2.grid(row = 2, column = 3, padx = 1, pady = 3)
 
 
 #ROW 3
-button_percent =  HoverButton(Window, text = "%", borderwidth=2, height=2, width=8, 
+button_raisedto =  HoverButton(Window, text = "xⁿ", borderwidth=2, height=2, width=8, 
 	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
-	anchor="center", command=lambda: Click_Button("%"))
-button_percent.grid(row = 3, column = 0, padx = 1, pady = 3)
+	anchor="center", command=lambda: Click_Button("**("))
+button_raisedto.grid(row = 3, column = 0, padx = 1, pady = 3)
 
 button_squared =  HoverButton(Window, text = "x²", borderwidth=2, height=2, width=8, 
 	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
