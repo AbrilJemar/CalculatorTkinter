@@ -27,8 +27,10 @@ class HoverButton(Button):
 
 
 i = 0
+result = "algo"
 def Operation():
 	global i
+	global result 
 	ecuacion = e_text.get()
 	if i !=0:		
 		try:
@@ -46,28 +48,32 @@ def Operation():
 		pass
 
 def Click_Button(value):
-    global i
-    ecuacion = e_text.get()
-    result = str(eval(ecuacion))
-
-    if e_text  == result or e_text == 'ERROR':
-        if isinstance(value, int):
-            e_text.delete(0, END)
-            i = 0
-            e_text.insert(i, value)
-            i += 1
-
-        else:
-            e_text.insert(i, value)
-            i += 1
-            leng = len(value)
-            i += leng
-        
-    else:
-        e_text.insert(i, value)
-        i += 1
-        leng = len(value)
-        i += leng
+	global i
+	if e_text.get() == result:
+		if e_text.get() == "ERROR":
+			e_text.delete(0, END)
+			i = 0
+			e_text.insert(i, value)
+			i += 1
+			leng = len(value)
+			i += leng
+		else:
+			if isinstance(value, int):
+				e_text.delete(0, END)
+				i = 0
+				e_text.insert(i, value)
+				i += 1
+			
+			else:
+				e_text.insert(i, value)
+				i += 1
+				leng = len(value)	
+				i += leng
+	else:
+		e_text.insert(i, value)
+		i += 1
+		leng = len(value)
+		i += leng
         
 
     
@@ -90,22 +96,22 @@ e_text.grid(row = 1, column = 0, columnspan = 4, padx = 10, pady = 10, sticky=W+
 
 #ROW 2
 button_drop = HoverButton(Window, text= "AC", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Drop())
 button_drop.grid(row = 2, column = 0, padx = 1, pady = 3)
 
 button_delete = HoverButton(Window, text= "⌫", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Delete())
 button_delete.grid(row = 2, column = 1, padx = 1, pady = 3)
 
 button_parenthesis1 = HoverButton(Window, text= "(", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("("))
 button_parenthesis1.grid(row = 2, column = 2, padx = 1, pady = 3)
 
 button_parenthesis2 = HoverButton(Window, text= ")", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button(")"))
 button_parenthesis2.grid(row = 2, column = 3, padx = 1, pady = 3)
 
@@ -114,22 +120,22 @@ button_parenthesis2.grid(row = 2, column = 3, padx = 1, pady = 3)
 
 #ROW 3
 button_percent =  HoverButton(Window, text = "%", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("%"))
 button_percent.grid(row = 3, column = 0, padx = 1, pady = 3)
 
 button_squared =  HoverButton(Window, text = "x²", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("**(2)"))
 button_squared.grid(row = 3, column = 1, padx = 1, pady = 3)
 
 button_root = HoverButton(Window, text= "√x", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center",command=lambda: Click_Button('**(1/2)'))
 button_root.grid(row = 3, column = 2, padx = 1, pady = 3)
 
 button_division = HoverButton(Window, text= "÷", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center",command=lambda: Click_Button('/'))
 button_division.grid(row = 3, column = 3, padx = 1, pady = 3)
 
@@ -153,7 +159,7 @@ button9 = HoverButton(Window, text= "9", borderwidth=2, height=2, width=8,
 button9.grid(row = 4, column = 2, padx = 1, pady = 3)
 
 button_product = HoverButton(Window, text= "*", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("*"))
 button_product.grid(row = 4, column = 3, padx = 1, pady = 3)
 
@@ -177,7 +183,7 @@ button6 = HoverButton(Window, text= "6", borderwidth=2, height=2, width=8,
 button6.grid(row = 5, column = 2, padx = 1, pady = 3)
 
 button_sum = HoverButton(Window, text= "+", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("+"))
 button_sum.grid(row = 5, column = 3, padx = 1, pady = 3)
 
@@ -202,7 +208,7 @@ button3 = HoverButton(Window, text = "3", borderwidth=2, height=2, width=8,
 button3.grid(row = 6, column = 2, padx = 1, pady = 3)
 
 button_subtraction = HoverButton(Window, text= "-", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("-"))
 button_subtraction.grid(row = 6, column = 3, padx = 1, pady = 3)
 
@@ -216,12 +222,12 @@ button0 = HoverButton(Window, text= "0", borderwidth=2, height=2, width=18,
 button0.grid(row = 7, column = 0, columnspan = 2, padx = 1, pady = 3)
 
 button_dot = HoverButton(Window, text= ".", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Click_Button("."))
 button_dot.grid(row = 7, column = 2, padx = 1, pady = 3)
 
 button_equal = HoverButton(Window, text= "=", borderwidth=2, height=2, width=8, 
-	font= ('Calibri',12), relief = "raised", activebackground="#3B2D3B", bg ='#52414E', fg = "White",   
+	font= ('Calibri',12), relief = "raised", activebackground="#322433", bg ='#3B2D3B', fg = "White",   
 	anchor="center", command=lambda: Operation())
 button_equal.grid(row = 7, column = 3, padx = 1, pady = 3)
 
