@@ -38,7 +38,7 @@ def Operation():
 			result = str(eval(ecuacion))
 			e_text.delete(0,END)
 			e_text.insert(0,result)
-			longitud = len(str(result))
+			longitud = len(result)
 			i = longitud
                         
 		except:
