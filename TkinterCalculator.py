@@ -2,7 +2,7 @@ from tkinter import *
 
 root = Tk()
 root.title("Calculadora")
-root.iconbitmap('D:\PROGRAMACION\CURSOS UDEMY\Python\CalcuTkinter\icono.ico') #Cambiar a la ruta en donde se haya descargado el icono
+#root.iconbitmap('D:\PROGRAMACION\CURSOS UDEMY\Python\CalcuTkinter\icono.ico') #Cambiar a la ruta en donde se haya descargado el icono
 root.configure(bg= "#2A1A24")
 root.resizable(0,0)
 
@@ -38,7 +38,7 @@ def Operation():
 			result = str(eval(ecuacion))
 			e_text.delete(0,END)
 			e_text.insert(0,result)
-			longitud = len(result)
+			longitud = len(str(result))
 			i = longitud
                         
 		except:
@@ -55,8 +55,7 @@ def Click_Button(value):
 			e_text.delete(0, END)
 			i = 0
 			e_text.insert(i, value)
-			i += 1
-			leng = len(value)
+			leng = len(str(value))
 			i += leng
 		else:
 			if isinstance(value, int):
@@ -67,13 +66,11 @@ def Click_Button(value):
 			
 			else:
 				e_text.insert(i, value)
-				i += 1
-				leng = len(value)	
+				leng = len(str(value))	
 				i += leng
 	else:
 		e_text.insert(i, value)
-		i += 1
-		leng = len(value)
+		leng = len(str(value))
 		i += leng
         
 
@@ -87,7 +84,7 @@ def Drop():
 def Delete():
     global i
     i -= 1
-    e_text.delete(i, END)
+    e_text.delete(i)
 
 
 #Entrada de texto and ROW 1
